@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Health Risk Prediction</title>
+    <link
+      rel="stylesheet"
+      href="styles.css"
+    />
+  </head>
+  <body>
+    <div class="background-animation">
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
+      <div class="floating-shape shape-4"></div>
+    </div>
+
+    <div class="container">
+      <h1 class="fade-in">Health Risk Prediction</h1>
+
+      <form
+        id="healthForm"
+        class="slide-up"
+      >
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            min="0"
+            max="120"
+            required
+          />
+          <div class="error-message">
+            Please enter a valid age between 0 and 120
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="hypertension">Hypertension</label>
+          <select
+            id="hypertension"
+            name="hypertension"
+            required
+          >
+            <option value="">Select an option</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+          <div class="error-message">Please select an option</div>
+        </div>
+
+        <div class="form-group">
+          <label for="avg_glucose_level">Average Glucose Level (mg/dL)</label>
+          <input
+            type="number"
+            id="avg_glucose_level"
+            name="avg_glucose_level"
+            min="0"
+            max="300"
+            step="0.1"
+            required
+          />
+          <div class="error-message">
+            Please enter a valid glucose level between 0 and 300
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bmi">BMI</label>
+          <input
+            type="number"
+            id="bmi"
+            name="bmi"
+            min="0"
+            max="100"
+            step="0.1"
+            required
+          />
+          <div class="error-message">
+            Please enter a valid BMI between 0 and 100
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="heart_disease">Heart Disease</label>
+          <select
+            id="heart_disease"
+            name="heart_disease"
+            required
+          >
+            <option value="">Select an option</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+          <div class="error-message">Please select an option</div>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select
+            id="gender"
+            name="gender"
+            required
+          >
+            <option value="">Select an option</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+          <div class="error-message">Please select an option</div>
+        </div>
+
+        <button
+          type="submit"
+          class="submit-btn"
+          id="submitBtn"
+        >
+          <span class="loading-spinner"></span>
+          <span class="btn-text">Predict Health Risk</span>
+        </button>
+      </form>
+
+      <div
+        class="result"
+        id="result"
+      ></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

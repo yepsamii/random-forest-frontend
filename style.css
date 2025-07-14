@@ -1,0 +1,486 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #333;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Animation */
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 80px;
+  height: 80px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 60px;
+  height: 60px;
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.shape-3 {
+  width: 100px;
+  height: 100px;
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.shape-4 {
+  width: 50px;
+  height: 50px;
+  top: 30%;
+  right: 30%;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.3;
+  }
+}
+
+/* Main Container */
+.container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  animation: containerSlide 0.8s ease-out;
+  position: relative;
+}
+
+@keyframes containerSlide {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Typography Animations */
+h1 {
+  text-align: center;
+  color: #2d3748;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form Animations */
+.slide-up {
+  opacity: 0;
+  animation: slideUp 0.8s ease-out 0.4s forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: formGroupSlide 0.6s ease-out forwards;
+}
+
+.form-group:nth-child(1) {
+  animation-delay: 0.6s;
+}
+.form-group:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.form-group:nth-child(3) {
+  animation-delay: 0.8s;
+}
+.form-group:nth-child(4) {
+  animation-delay: 0.9s;
+}
+.form-group:nth-child(5) {
+  animation-delay: 1s;
+}
+.form-group:nth-child(6) {
+  animation-delay: 1.1s;
+}
+
+@keyframes formGroupSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+  position: relative;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: white;
+  transform: translateY(-2px);
+}
+
+/* Input Focus Animation */
+input:focus + .error-message,
+select:focus + .error-message {
+  animation: inputFocus 0.3s ease-out;
+}
+
+@keyframes inputFocus {
+  0% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Button Animations */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: buttonSlide 0.8s ease-out 1.2s forwards;
+}
+
+@keyframes buttonSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Button Ripple Effect */
+.submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.submit-btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Loading Spinner Animation */
+.loading-spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Result Animations */
+.result {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: none;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.result.show {
+  display: block;
+  animation: resultSlide 0.6s ease-out forwards;
+}
+
+@keyframes resultSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.result.success {
+  background: #f0fff4;
+  color: #22543d;
+  border: 2px solid #9ae6b4;
+  animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(154, 230, 180, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(154, 230, 180, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(154, 230, 180, 0);
+  }
+}
+
+.result.risk {
+  background: #fff5f5;
+  color: #742a2a;
+  border: 2px solid #feb2b2;
+  animation: riskShake 0.6s ease-out;
+}
+
+@keyframes riskShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.result.error {
+  background: #fef5e7;
+  color: #7d4e2a;
+  border: 2px solid #f6ad55;
+  animation: errorBounce 0.6s ease-out;
+}
+
+@keyframes errorBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Error Message Animations */
+.error-message {
+  color: #e53e3e;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  display: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.error-message.show {
+  display: block;
+  animation: errorSlide 0.3s ease-out forwards;
+}
+
+@keyframes errorSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-group.error input,
+.form-group.error select {
+  border-color: #e53e3e;
+  background: #fef5f5;
+  animation: inputError 0.3s ease-out;
+}
+
+@keyframes inputError {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input,
+  select {
+    padding: 10px 12px;
+  }
+
+  .submit-btn {
+    padding: 12px;
+  }
+
+  .floating-shape {
+    opacity: 0.05;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .floating-shape {
+    animation: none;
+  }
+}
